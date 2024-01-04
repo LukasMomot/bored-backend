@@ -1,14 +1,11 @@
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
+using BoredBackend;
 
 var builder = WebApplication.CreateBuilder(args);
-
+DotEnv.Load();
 builder.Configuration.AddEnvironmentVariables();
-// get value from configuration
-var value = builder.Configuration["key"];
-// display value
-Console.WriteLine($"Value: {value}");
+
+var t = builder.Configuration["test2"];
+Console.WriteLine($"key2: {t}");
 
 var app = builder.Build();
 

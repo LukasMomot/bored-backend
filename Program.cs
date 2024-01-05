@@ -9,7 +9,10 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddDbContext<BoredDbContext>(options =>
 {
     var connectionString = builder.Configuration["AzureDb_ConnectionString"];
-    options.UseSqlServer(connectionString);
+    options.UseSqlServer(connectionString, optionsBuilder =>
+    {
+        optionsBuilder.EnableRetryOnFailure(2);
+    });
 });
 
 var connection = builder.Configuration["AzureDb_ConnectionString"];

@@ -22,6 +22,7 @@ public class ActivityConfiguration : IEntityTypeConfiguration<Activity>
             .IsRequired()
             .HasMaxLength(200);
         
-
+        builder.Property(a => a.Link)
+            .HasMaxLength(5000);
     }
 }

@@ -24,5 +24,9 @@ public class ActivityConfiguration : IEntityTypeConfiguration<Activity>
         
         builder.Property(a => a.Link)
             .HasMaxLength(5000);
+
+        builder.HasMany<Offer>()
+            .WithOne(a => a.Activity)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

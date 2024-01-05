@@ -22,6 +22,8 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
         builder.Property(a => a.IsActive)
             .HasDefaultValue(true);
         
+        builder.HasQueryFilter(a => a.IsActive == true);
+        
         // Optional since this is configured in ActivityConfiguration
         // builder.HasOne(a => a.Activity)
         //     .WithMany(a => a.Offers)

@@ -8,6 +8,6 @@ public class Activity
     public int Participants { get; set; }
     public decimal Price { get; set; }
     public string Link { get; set; }
-    public string Key { get; set; }
+    public string ExternalKey { get; set; }
     public decimal Accessibility { get; set; }
 }

@@ -1,5 +1,6 @@
 using BoredBackend;
 using BoredBackend.Data;
+using BoredBackend.Endpoints;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,5 +19,6 @@ builder.Services.AddDbContext<BoredDbContext>(options =>
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
+app.MapActivityEndpoints();
 
 app.Run();

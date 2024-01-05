@@ -18,6 +18,9 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
         builder.Property(o => o.BuyUrl)
             .IsRequired()
             .HasMaxLength(5000);
+
+        builder.Property(a => a.IsActive)
+            .HasDefaultValue(true);
         
         // Optional since this is configured in ActivityConfiguration
         // builder.HasOne(a => a.Activity)

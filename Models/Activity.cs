@@ -10,4 +10,6 @@ public class Activity
     public string Link { get; set; }
     public string ExternalKey { get; set; }
     public decimal Accessibility { get; set; }
+    
+    public virtual List<Offer> Offers { get; set; } = [];
 }

@@ -6,7 +6,7 @@ public class Offer
     public required string Name { get; set; }
     public required string BuyUrl { get; set; }
     
-    public Activity Activity { get; set; } = null!;
+    public virtual Activity Activity { get; set; } = null!;
 
     public int ActivityId { get; set; }
 }

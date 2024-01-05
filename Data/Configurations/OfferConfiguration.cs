@@ -19,8 +19,52 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
             .IsRequired()
             .HasMaxLength(5000);
         
+        // Optional since this is configured in ActivityConfiguration
         // builder.HasOne(a => a.Activity)
-        //     .WithMany()
+        //     .WithMany(a => a.Offers)
         //     .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasData(
+            new Offer
+            {
+                Id = 1,
+                Name = "Karaoke Bar",
+                BuyUrl = "https://www.karaokebar.com",
+                ActivityId = 1
+            },
+            new Offer
+            {
+                Id = 2,
+                Name = "Karaoke Bar 2",
+                BuyUrl = "https://www.karaokebar2.com",
+                ActivityId = 1
+            },
+            new Offer
+            {
+                Id = 3,
+                Name = "Tennis Club",
+                BuyUrl = "https://www.tennisclub.com",
+                ActivityId = 2
+            },
+            new Offer
+            {
+                Id = 4,
+                Name = "Tennis Club 2",
+                BuyUrl = "https://www.tennisclub2.com",
+                ActivityId = 2
+            }, new Offer
+            {
+                Id = 5,
+                Name = "Animal Shelter",
+                BuyUrl = "https://www.animalshelter.com",
+                ActivityId = 3
+            },
+            new Offer
+            {
+                Id = 6,
+                Name = "Animal Shelter 2",
+                BuyUrl = "https://www.animalshelter2.com",
+                ActivityId = 3
+            });
     }
 }

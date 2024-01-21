@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace BoredBackend.Models;
 
 public class Offer
@@ -8,6 +10,7 @@ public class Offer
     
     public bool IsActive { get; set; } = true;
     
+    [JsonIgnore]
     public virtual Activity Activity { get; set; } = null!;
 
     public int ActivityId { get; set; }

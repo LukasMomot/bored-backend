@@ -12,12 +12,16 @@ public static class ActivityEndpoints
         var group = app.MapGroup("api/activities");
         
         group.MapGet("", GetAllActivities);
+        
         group.MapGet("{id:int}", GetActivityById);
     }
 
     private static async Task<Ok<List<Activity>>> GetAllActivities(BoredDbContext dbContext)
     {
-        var activities = await dbContext.Activities.ToListAsync();
+        var activities = await dbContext.Activities.
+            Include(o => o.Offers)
+            .ToListAsync();
+        
         var res = TypedResults.Ok(activities);
 
         return res;

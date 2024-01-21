@@ -6,9 +6,7 @@ var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
     .ConfigureServices(services =>
     {
-        // TODO: Switch to typed http client
-        services.AddTransient<IBoredApiService, BoredApiService>();
-        services.AddHttpClient();
+        services.AddHttpClient<IBoredApiService, BoredApiService>();
     })
     .Build();
 

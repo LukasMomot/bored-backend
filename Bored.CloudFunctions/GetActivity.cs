@@ -20,11 +20,11 @@ public class GetActivity
 
     [Function(nameof(GetActivity))]
     public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post")] 
+        [HttpTrigger(AuthorizationLevel.Function, "get")] 
         HttpRequestData req,
         FunctionContext executionContext)
     {
-        _logger.LogInformation("C# HTTP trigger function processed a request.");
+        _logger.LogInformation("C# HTTP trigger function processed a request");
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         

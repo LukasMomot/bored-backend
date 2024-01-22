@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BoredBackend.Data;
 
-public class BoredDbContext(DbContextOptions<BoredDbContext> options) : DbContext(options)
+public class BoredDbContext(DbContextOptions<BoredDbContext> options) :DbContext(options), IBoredDbContext
 {
     public DbSet<Activity> Activities { get; set; } = null!;
     public DbSet<Offer> Offers { get; set; } = null!;

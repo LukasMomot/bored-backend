@@ -1,11 +1,14 @@
+using System.Net.Http.Json;
+using BoredBackend.Models;
+
 namespace Bored.CloudFunctions.Services;
 
 public class BoredApiService(HttpClient httpClient) : IBoredApiService
 {
-    public async Task<string> GetActivity()
+    public async Task<ActivityStaging?> GetActivity()
     {
         var response = await httpClient.GetAsync("https://www.boredapi.com/api/activity");
-        var content = await response.Content.ReadAsStringAsync();
+        var content = await response.Content.ReadFromJsonAsync<ActivityStaging>();
         return content;
     }
 }

@@ -7,28 +7,28 @@ using Microsoft.Extensions.Logging;
 
 namespace Bored.CloudFunctions;
 
-public class FirstFunction
+public class GetActivity
 {
     private readonly IBoredApiService _boredApiService;
     private readonly ILogger _logger;
 
-    public FirstFunction(ILoggerFactory loggerFactory, IBoredApiService boredApiSservice)
+    public GetActivity(ILoggerFactory loggerFactory, IBoredApiService boredApiSservice)
     {
         _boredApiService = boredApiSservice;
-        _logger = loggerFactory.CreateLogger<FirstFunction>();
+        _logger = loggerFactory.CreateLogger<GetActivity>();
     }
 
-    [Function("FirstFunction")]
+    [Function(nameof(GetActivity))]
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req,
         FunctionContext executionContext)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
 
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-
+        
         var activity = await _boredApiService.GetActivity();
-        await response.WriteStringAsync(activity);
+        await response.WriteAsJsonAsync(activity);
+        //response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
         //response.WriteString("Welcome to Azure Functions!");
 
         return response;

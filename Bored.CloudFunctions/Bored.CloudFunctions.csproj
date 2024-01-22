@@ -25,6 +25,12 @@
     <ItemGroup>
         <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\BoredBackend\BoredBackend.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\BoredBackend\BoredBackend.csproj" />
+    </ItemGroup>
     <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
         <ItemGroup>
             <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*" />

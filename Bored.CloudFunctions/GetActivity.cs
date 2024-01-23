@@ -26,6 +26,10 @@ public class GetActivity
     {
         _logger.LogInformation("C# HTTP trigger function processed a request");
 
+        // var maxCount = 2;
+        // var batchSize = 5;
+        // var batchCount = (int)Math.Ceiling((double)maxCount / batchSize);
+        
         var response = req.CreateResponse(HttpStatusCode.OK);
         
         var activity = await _boredApiService.GetActivity();

@@ -12,4 +12,12 @@ public static class DbSetExtensions
         var exists = predicate != null ? dbSet.Any(predicate) : dbSet.Any();
         return !exists ? dbSet.Add(entity) : null;
     }
+    
+    public static void AddRangeIfNotExists<T>(this DbSet<T> dbSet, IEnumerable<T> entities, Expression<Func<T, bool>>? predicate = null) where T : class, new()
+    {
+        foreach (var entity in entities)
+        {
+            dbSet.AddIfNotExists(entity, predicate);
+        }
+    }
 }

@@ -35,6 +35,8 @@ public class ActivityStagingDurable
         logger.LogInformation("Stage activitycount: {activityCount}", allStagedActivities.Count);
         logger.LogInformation("Staged activities: {activityNames}", activityNames);
         
+        await context.CallActivityAsync(nameof(SaveStaged), allStagedActivities);
+        
         return activityNames;
     }
 }

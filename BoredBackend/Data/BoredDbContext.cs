@@ -8,6 +8,7 @@ public class BoredDbContext(DbContextOptions<BoredDbContext> options) :DbContext
 {
     public DbSet<Activity> Activities { get; set; } = null!;
     public DbSet<Offer> Offers { get; set; } = null!;
+    public DbSet<ActivityStaging> StagedActivities { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

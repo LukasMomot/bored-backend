@@ -12,7 +12,7 @@ builder.Services.AddDbContext<BoredDbContext>(options =>
     var connectionString = builder.Configuration["AzureDb_ConnectionString"];
     options.UseSqlServer(connectionString, optionsBuilder =>
     {
-        optionsBuilder.EnableRetryOnFailure(3);
+        optionsBuilder.EnableRetryOnFailure(5);
     });
 });
 

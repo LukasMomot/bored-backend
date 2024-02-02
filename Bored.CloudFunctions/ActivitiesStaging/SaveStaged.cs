@@ -17,6 +17,8 @@ public class SaveStaged(BoredDbContext dbContext)
         var existingActivities = dbContext.StagedActivities.Select(a => a.Key).ToList();
         activitiesToStage = activitiesToStage.Where(a => !existingActivities.Contains(a.Key)).ToList();
         
+        logger.LogInformation("Activities to stage after removing duplicates: {count}", activitiesToStage.Count);
+        
         dbContext.StagedActivities.AddRange(activitiesToStage);
         await dbContext.SaveChangesAsync();
         

@@ -35,9 +35,9 @@ public class TransferStageActivities(ILoggerFactory loggerFactory, BoredDbContex
             boredDbContext.Activities.AddIfNotExists(activity, a => a.ExternalKey == activity.ExternalKey);
         }
         
-        await boredDbContext.SaveChangesAsync();
+        var rowsAffected = await boredDbContext.SaveChangesAsync();
         
-        _logger.LogInformation("All activities staged successfully");
+        _logger.LogInformation("All activities staged successfully: Rows affected: {RowsAffected}", rowsAffected);
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         return response;

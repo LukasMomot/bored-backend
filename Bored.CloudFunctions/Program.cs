@@ -10,6 +10,10 @@ var host = new HostBuilder()
     .ConfigureServices((context, services) =>
     {
         services.AddHttpClient<IBoredApiService, BoredApiService>();
+        services.AddMediatR(cfg => {
+            cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+        });
+        
         services.AddDbContext<BoredDbContext>(options =>
         {
             options.UseSqlServer(context.Configuration.GetConnectionString("AzureDb"), optionsBuilder =>

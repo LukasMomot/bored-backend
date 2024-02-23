@@ -26,6 +26,7 @@ public class TransferStageActivities(ILoggerFactory loggerFactory, IMediator med
         _logger.LogInformation("All activities staged successfully: Rows affected: {RowsAffected}", rowsAffected);
 
         var response = req.CreateResponse(HttpStatusCode.OK);
+        await response.WriteStringAsync($"Rows affected: {rowsAffected}");
         return response;
     }
 }

@@ -9,15 +9,15 @@ using Microsoft.Extensions.Logging;
 
 namespace Bored.CloudFunctions.ActivitiesStaging;
 
-public class StageActivities(ILoggerFactory loggerFactory, BoredDbContext boredDbContext)
+public class TransferStageActivities(ILoggerFactory loggerFactory, BoredDbContext boredDbContext)
 {
-    private readonly ILogger _logger = loggerFactory.CreateLogger<StageActivities>();
+    private readonly ILogger _logger = loggerFactory.CreateLogger<TransferStageActivities>();
 
-    [Function("StageActivities")]
+    [Function(nameof(TransferStageActivities))]
     public async Task<HttpResponseData> RunAsync([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req,
         FunctionContext executionContext)
     {
-        _logger.LogInformation("StageActivities HTTP trigger function processed a request");
+        _logger.LogInformation("Transfer Stage Activities HTTP trigger function processed a request");
         var stagingActivities = await boredDbContext.StagedActivities.ToListAsync();
         var activities = stagingActivities.Select(a => new Activity
         {

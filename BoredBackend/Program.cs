@@ -1,23 +1,13 @@
-using Azure.Identity;
-using BoredBackend;
 using BoredBackend.Data;
 using BoredBackend.Endpoints;
+using BoredBackend.Utils;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-// Use dotenv for local development
 
-//DotEnv.Load();
-//builder.Configuration.AddEnvironmentVariables();
-
-var kvUri = builder.Configuration["AZUKE_KEY_VAULT_ENDPOINT"];
-if (kvUri != null)
-{
-    builder.Configuration.AddAzureKeyVault(new Uri(kvUri), new DefaultAzureCredential());
-}
+builder.AddAppConfiguration();
 
 var connectionString = builder.Configuration["AzureDb"];
-
 builder.Services.AddDbContext<BoredDbContext>(options =>
 {
     options.UseSqlServer(connectionString, optionsBuilder =>

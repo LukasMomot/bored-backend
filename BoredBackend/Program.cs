@@ -5,18 +5,21 @@ using BoredBackend.Endpoints;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-DotEnv.Load();
-builder.Configuration.AddEnvironmentVariables();
+// Use dotenv for local development
+
+//DotEnv.Load();
+//builder.Configuration.AddEnvironmentVariables();
+
 var kvUri = builder.Configuration["AZUKE_KEY_VAULT_ENDPOINT"];
 if (kvUri != null)
 {
     builder.Configuration.AddAzureKeyVault(new Uri(kvUri), new DefaultAzureCredential());
 }
 
+var connectionString = builder.Configuration["AzureDb"];
 
 builder.Services.AddDbContext<BoredDbContext>(options =>
 {
-    var connectionString = builder.Configuration["AzureDb_ConnectionString"];
     options.UseSqlServer(connectionString, optionsBuilder =>
     {
         optionsBuilder.EnableRetryOnFailure(5);

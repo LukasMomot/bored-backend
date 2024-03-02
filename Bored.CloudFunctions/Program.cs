@@ -21,6 +21,15 @@ var host = new HostBuilder()
                 optionsBuilder.EnableRetryOnFailure(5);
             });
         });
+        
+        var redisConnectionString = context.Configuration.GetConnectionString("Redis");
+        if (redisConnectionString != null)
+        {
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = redisConnectionString;
+            });
+        }
     })
     .Build();
 

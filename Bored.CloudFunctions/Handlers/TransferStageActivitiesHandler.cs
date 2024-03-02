@@ -1,13 +1,15 @@
+using System.Globalization;
 using Bored.CloudFunctions.Commands;
 using BoredBackend.Data;
 using BoredBackend.Models;
 using BoredBackend.Utils;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Bored.CloudFunctions.Handlers;
 
-public class TransferStageActivitiesHandler(BoredDbContext boredDbContext) : IRequestHandler<TransferStageActivitiesCommand, int>
+public class TransferStageActivitiesHandler(BoredDbContext boredDbContext, IDistributedCache? cache) : IRequestHandler<TransferStageActivitiesCommand, int>
 {
     public async Task<int> Handle(TransferStageActivitiesCommand request, CancellationToken cancellationToken)
     {
@@ -29,6 +31,12 @@ public class TransferStageActivitiesHandler(BoredDbContext boredDbContext) : IRe
         }
         
         var rowsAffected = await boredDbContext.SaveChangesAsync();
+
+        if (cache != null)
+        {
+            await cache.SetStringAsync("stagingDate", DateTime.UtcNow.ToString(CultureInfo.InvariantCulture), cancellationToken);
+        }
+        
         return rowsAffected;
     }
 }

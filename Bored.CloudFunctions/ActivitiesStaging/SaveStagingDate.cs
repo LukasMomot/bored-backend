@@ -21,7 +21,7 @@ public class SaveStagingDate(ILoggerFactory loggerFactory, IDistributedCache cac
         var response = req.CreateResponse(HttpStatusCode.OK);
         response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
         const string key = "stagingDate";
-        var value = System.DateTime.Now.ToString(CultureInfo.InvariantCulture);
+        var value = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
         cache.SetString(key, value);
         var cachedValue = cache.GetString(key);
         

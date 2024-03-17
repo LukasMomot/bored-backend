@@ -1,5 +1,6 @@
 using Bored.Blazor.Client.Pages;
 using Bored.Blazor.Components;
+using Bored.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddCommonServices();
 
 var app = builder.Build();
 

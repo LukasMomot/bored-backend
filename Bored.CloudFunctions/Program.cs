@@ -1,4 +1,5 @@
 using Bored.CloudFunctions.Services;
+using Bored.Services;
 using BoredBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +10,7 @@ var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
     .ConfigureServices((context, services) =>
     {
-        services.AddHttpClient<IBoredApiService, BoredApiService>();
+        services.AddCommonServices();
         services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
         });

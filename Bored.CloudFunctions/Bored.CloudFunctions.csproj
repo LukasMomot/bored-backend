@@ -29,10 +29,14 @@
         <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Bored.Services\Bored.Services.csproj" />
       <ProjectReference Include="..\BoredBackend\BoredBackend.csproj" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\BoredBackend\BoredBackend.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Services\" />
     </ItemGroup>
     <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
         <ItemGroup>

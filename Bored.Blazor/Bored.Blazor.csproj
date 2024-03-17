@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Bored.Blazor.Client\Bored.Blazor.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
+    <ProjectReference Include="..\Bored.Services\Bored.Services.csproj" />
   </ItemGroup>
 
 </Project>

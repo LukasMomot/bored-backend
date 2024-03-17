@@ -1,7 +1,8 @@
 using System.Net.Http.Json;
+using Bored.CloudFunctions.Services;
 using BoredBackend.Models;
 
-namespace Bored.CloudFunctions.Services;
+namespace Bored.Services.ExternalClients;
 
 public class BoredApiService(HttpClient httpClient) : IBoredApiService
 {

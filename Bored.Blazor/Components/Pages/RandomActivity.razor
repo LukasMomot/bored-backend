@@ -1,0 +1,18 @@
+@page "/randomActivity"
+@using Bored.CloudFunctions.Services
+@using BoredBackend.Models
+@rendermode InteractiveServer
+
+@inject IBoredApiService BoredApiService
+
+<h3>RandomActivity</h3>
+<p class="text-blue">@_randomActivity?.Activity</p>
+
+@code {
+    private ActivityStaging? _randomActivity;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _randomActivity = await BoredApiService.GetActivity();
+    }
+}

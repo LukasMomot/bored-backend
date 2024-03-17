@@ -1,11 +1,14 @@
 ﻿@page "/weather"
 @attribute [StreamRendering]
+@rendermode InteractiveServer
 
 <PageTitle>Weather</PageTitle>
 
 <h1>Weather</h1>
 
 <p>This component demonstrates showing data.</p>
+<button @onclick="OnClick">Click Me :)</button>
+<p>@clickedText</p>
 
 @if (forecasts == null)
 {
@@ -38,6 +41,7 @@ else
 
 @code {
     private WeatherForecast[]? forecasts;
+    private string clickedText = "Button not clicked";
 
     protected override async Task OnInitializedAsync()
     {
@@ -52,6 +56,12 @@ else
             TemperatureC = Random.Shared.Next(-20, 55),
             Summary = summaries[Random.Shared.Next(summaries.Length)]
         }).ToArray();
+    }
+    
+    private void OnClick()
+    {
+        Console.WriteLine("Button clicked");
+        clickedText = "Button clicked";
     }
 
     private class WeatherForecast

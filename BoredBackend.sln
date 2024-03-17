@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoredBackend", "BoredBacken
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bored.CloudFunctions", "Bored.CloudFunctions\Bored.CloudFunctions.csproj", "{483849BB-8C18-4B7F-A578-CDE533665C29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bored.Blazor", "Bored.Blazor\Bored.Blazor.csproj", "{213AA336-000A-4C05-B183-4829073712EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bored.Blazor.Client", "Bored.Blazor.Client\Bored.Blazor.Client.csproj", "{135E2A37-64E5-4B79-A58C-865FA52C43A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{483849BB-8C18-4B7F-A578-CDE533665C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{483849BB-8C18-4B7F-A578-CDE533665C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{483849BB-8C18-4B7F-A578-CDE533665C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213AA336-000A-4C05-B183-4829073712EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213AA336-000A-4C05-B183-4829073712EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213AA336-000A-4C05-B183-4829073712EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213AA336-000A-4C05-B183-4829073712EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135E2A37-64E5-4B79-A58C-865FA52C43A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135E2A37-64E5-4B79-A58C-865FA52C43A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135E2A37-64E5-4B79-A58C-865FA52C43A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135E2A37-64E5-4B79-A58C-865FA52C43A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

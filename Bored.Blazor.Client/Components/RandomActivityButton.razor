@@ -1,13 +1,19 @@
 @using Bored.Models
+@using Bored.Services.ExternalClients
 @inject HttpClient Http
-<h3>RandomActivityButton</h3>
+@inject IBoredApiService BoredApiService
+
 <button @onclick="GetRandom">Random 🚀</button>
 @code {
-    ActivityStaging? _randomActivity;
+    
+    [Parameter]
+    public EventCallback<ActivityStaging?> OnActivityChanged { get; set; }
 
     private async Task GetRandom()
     {
-        _randomActivity = await Http.GetFromJsonAsync<ActivityStaging>("https://www.boredapi.com/api/activity");
         Console.WriteLine("Random Activity Button Clicked!");
+        //_randomActivity = await Http.GetFromJsonAsync<ActivityStaging>("https://www.boredapi.com/api/activity");
+        var randomActivity = await BoredApiService.GetActivity();
+        await OnActivityChanged.InvokeAsync(randomActivity);
     }
 }

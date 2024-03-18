@@ -6,7 +6,7 @@
 @inject IBoredApiService BoredApiService
 
 <h3>RandomActivity</h3>
-<RandomActivityButton />
+<RandomActivityButton OnActivityChanged="staging => _randomActivity = staging " />
 <p class="text-blue">@_randomActivity?.Activity</p>
 
 @code {

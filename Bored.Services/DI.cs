@@ -1,4 +1,3 @@
-using Bored.CloudFunctions.Services;
 using Bored.Services.ExternalClients;
 using Microsoft.Extensions.DependencyInjection;
 

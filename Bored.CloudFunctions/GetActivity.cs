@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Net;
-using Bored.CloudFunctions.Services;
+using Bored.Services.ExternalClients;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;

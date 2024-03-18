@@ -1,6 +1,6 @@
 using BoredBackend.Models;
 
-namespace Bored.CloudFunctions.Services;
+namespace Bored.Services.ExternalClients;
 
 public interface IBoredApiService
 {

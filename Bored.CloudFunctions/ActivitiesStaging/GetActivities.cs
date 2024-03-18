@@ -1,4 +1,4 @@
-using Bored.CloudFunctions.Services;
+using Bored.Services.ExternalClients;
 using BoredBackend.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask;

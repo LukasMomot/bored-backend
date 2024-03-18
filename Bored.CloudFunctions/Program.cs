@@ -1,4 +1,3 @@
-using Bored.CloudFunctions.Services;
 using Bored.Services;
 using BoredBackend.Data;
 using Microsoft.EntityFrameworkCore;

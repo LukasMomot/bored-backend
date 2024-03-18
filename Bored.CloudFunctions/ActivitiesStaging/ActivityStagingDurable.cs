@@ -1,7 +1,7 @@
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask;
 using Microsoft.Extensions.Logging;
-using ActivityStagingModel = BoredBackend.Models.ActivityStaging;
+using ActivityStagingModel = Bored.Models.ActivityStaging;
 
 namespace Bored.CloudFunctions.ActivitiesStaging;
 

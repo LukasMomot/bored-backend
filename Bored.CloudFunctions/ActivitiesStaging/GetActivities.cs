@@ -1,5 +1,5 @@
+using Bored.Models;
 using Bored.Services.ExternalClients;
-using BoredBackend.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask;
 using Microsoft.Extensions.Logging;

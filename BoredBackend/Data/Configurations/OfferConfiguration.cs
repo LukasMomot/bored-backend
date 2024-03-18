@@ -1,4 +1,5 @@
-using BoredBackend.Models;
+
+using Bored.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,7 +16,7 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
         builder.Property(o => o.Name)
             .IsRequired()
             .HasMaxLength(2000);
-        builder.Property(o => o.BuyUrl)
+        builder.Property(o => o.BuyUrl) 
             .IsRequired()
             .HasMaxLength(5000);
 

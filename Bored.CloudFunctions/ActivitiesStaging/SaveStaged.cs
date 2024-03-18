@@ -1,5 +1,5 @@
+using Bored.Models;
 using BoredBackend.Data;
-using BoredBackend.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 

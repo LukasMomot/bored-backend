@@ -1,4 +1,4 @@
-namespace BoredBackend.Models;
+namespace Bored.Models;
 
 public class Activity
 {

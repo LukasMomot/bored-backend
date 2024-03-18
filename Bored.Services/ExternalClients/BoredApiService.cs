@@ -1,5 +1,5 @@
 using System.Net.Http.Json;
-using BoredBackend.Models;
+using Bored.Models;
 
 namespace Bored.Services.ExternalClients;
 

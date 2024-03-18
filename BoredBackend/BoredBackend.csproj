@@ -18,6 +18,11 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bored.Models\Bored.Models.csproj" />
   </ItemGroup>
 
 </Project>

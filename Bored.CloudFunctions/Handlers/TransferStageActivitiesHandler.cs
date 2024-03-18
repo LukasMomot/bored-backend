@@ -1,7 +1,7 @@
 using System.Globalization;
 using Bored.CloudFunctions.Commands;
+using Bored.Models;
 using BoredBackend.Data;
-using BoredBackend.Models;
 using BoredBackend.Utils;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

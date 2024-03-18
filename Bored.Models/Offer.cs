@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace BoredBackend.Models;
+namespace Bored.Models;
 
 public class Offer
 {

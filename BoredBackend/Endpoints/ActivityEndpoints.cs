@@ -1,5 +1,6 @@
+
+using Bored.Models;
 using BoredBackend.Data;
-using BoredBackend.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 

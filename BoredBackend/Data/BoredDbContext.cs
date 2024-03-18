@@ -1,5 +1,5 @@
 using System.Reflection;
-using BoredBackend.Models;
+using Bored.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoredBackend.Data;

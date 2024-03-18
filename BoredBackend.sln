@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bored.Blazor.Client", "Bore
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bored.Services", "Bored.Services\Bored.Services.csproj", "{C2941288-EEBE-4467-AC46-40771BA6CEA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bored.Models", "Bored.Models\Bored.Models.csproj", "{81C90B6C-36ED-4417-AC53-B6A494291A8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{C2941288-EEBE-4467-AC46-40771BA6CEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2941288-EEBE-4467-AC46-40771BA6CEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2941288-EEBE-4467-AC46-40771BA6CEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C90B6C-36ED-4417-AC53-B6A494291A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C90B6C-36ED-4417-AC53-B6A494291A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C90B6C-36ED-4417-AC53-B6A494291A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C90B6C-36ED-4417-AC53-B6A494291A8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-using BoredBackend.Models;
+using Bored.Models;
 
 namespace Bored.Services.ExternalClients;
 

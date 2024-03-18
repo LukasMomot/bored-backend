@@ -1,10 +1,13 @@
+@using Bored.Models
+@inject HttpClient Http
 <h3>RandomActivityButton</h3>
 <button @onclick="GetRandom">Random 🚀</button>
 @code {
+    ActivityStaging? _randomActivity;
 
-    private void GetRandom()
+    private async Task GetRandom()
     {
+        _randomActivity = await Http.GetFromJsonAsync<ActivityStaging>("https://www.boredapi.com/api/activity");
         Console.WriteLine("Random Activity Button Clicked!");
     }
-
 }

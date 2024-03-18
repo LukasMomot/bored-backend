@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Bored.Models\Bored.Models.csproj" />
-      <ProjectReference Include="..\BoredBackend\BoredBackend.csproj" />
     </ItemGroup>
 
 </Project>

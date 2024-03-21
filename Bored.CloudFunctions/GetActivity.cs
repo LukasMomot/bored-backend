@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Net;
+using Bored.Models;
 using Bored.Services.ExternalClients;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Extensions.Logging;
 
 namespace Bored.CloudFunctions;
@@ -19,6 +21,9 @@ public class GetActivity
     }
 
     [Function(nameof(GetActivity))]
+    [OpenApiOperation(operationId: "GetActivity", Summary = "Get a random activity", Description = "This endpoint returns a random activity.")]
+    [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(ActivityStaging), Description = "This returns the response")]
+    [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(string), Description = "This return error message")]
     public async Task<HttpResponseData> Run(
         [HttpTrigger(AuthorizationLevel.Function, "get")] 
         HttpRequestData req,

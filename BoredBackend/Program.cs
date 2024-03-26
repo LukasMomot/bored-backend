@@ -23,7 +23,7 @@ var serviceBusCs = builder.Configuration["ServiceBus"];
 builder.Services.AddMassTransit(x =>
 {
     x.SetKebabCaseEndpointNameFormatter();
-    x.AddConsumer<StartFakeStagingConsumer>();
+    //x.AddConsumer<StartFakeStagingConsumer>();
     x.UsingAzureServiceBus((context, cfg) =>
     {
         cfg.Host(serviceBusCs);

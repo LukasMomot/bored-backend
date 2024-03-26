@@ -1,4 +1,4 @@
-namespace BoredBackend.Messages;
+namespace Bored.Models.Messages;
 
 public record StartFakeStaging()
 {

@@ -1,7 +1,7 @@
 
 using Bored.Models;
+using Bored.Models.Messages;
 using BoredBackend.Data;
-using BoredBackend.Messages;
 using MassTransit;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;

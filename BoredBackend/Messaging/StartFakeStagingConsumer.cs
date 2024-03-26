@@ -1,4 +1,4 @@
-using BoredBackend.Messages;
+using Bored.Models.Messages;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 

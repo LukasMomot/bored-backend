@@ -33,6 +33,13 @@ public static class BuilderExtensions
                     kv.SetCredential(new DefaultAzureCredential());
                 }).Select(KeyFilter.Any, LabelFilter.Null);
         });
+
+        // Alternative way to bind options
+        // builder.Services
+        //     .AddOptions<TestOptions>()
+        //     .Bind(builder.Configuration.GetSection(TestOptions.SectionName))
+        //     .ValidateDataAnnotations()
+        //     .ValidateOnStart();
         
         builder.Services.Configure<TestOptions>(builder.Configuration.GetSection(TestOptions.SectionName));
     }

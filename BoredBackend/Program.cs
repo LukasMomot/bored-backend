@@ -19,7 +19,15 @@ builder.Services.AddDbContext<BoredDbContext>(options =>
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/secret", (IConfiguration config) => config["firstSecret"]);
+app.MapGet("/secret", (IConfiguration config) =>
+{
+    var secret = config["firstSecret"]; // This is cooming from keyvalut
+    var azureAppConfig = config["azureSampleConfig"];
+    
+    // return anonymous object with keys and values Secret, AzureAppConfig
+    return new { Secret = secret, AzureAppConfig = azureAppConfig };
+    
+});
 app.MapActivityEndpoints();
 
 app.Run();

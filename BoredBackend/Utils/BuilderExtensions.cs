@@ -1,6 +1,5 @@
-
-
 using Azure.Identity;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 namespace BoredBackend.Utils;
 
@@ -11,7 +10,7 @@ public static class BuilderExtensions
         // Use dotenv for local development
         if (builder.Environment.IsDevelopment())
         {
-            DotEnv.Load();
+            dotenv.net.DotEnv.Load();
             builder.Configuration.AddEnvironmentVariables();
         }
         else
@@ -22,5 +21,13 @@ public static class BuilderExtensions
                 builder.Configuration.AddAzureKeyVault(new Uri(kvUri), new DefaultAzureCredential());
             }
         }
+        
+        builder.Configuration.AddAzureAppConfiguration(options =>
+        {
+            var config = Environment.GetEnvironmentVariable("AZURE_APP_CONFIG");
+            options
+                .Connect(config)
+                .Select(KeyFilter.Any, LabelFilter.Null);
+        });
     }
 }

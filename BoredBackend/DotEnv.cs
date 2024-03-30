@@ -1,5 +1,6 @@
 namespace BoredBackend;
 
+[Obsolete("This class is obsolete. Please use dotenv.net.DotEnv.Load() instead.")]
 public static class DotEnv
 {
     public static void Load()

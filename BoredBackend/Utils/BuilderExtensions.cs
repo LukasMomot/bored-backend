@@ -1,4 +1,5 @@
 using Azure.Identity;
+using Bored.Models.Options;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 namespace BoredBackend.Utils;
@@ -29,5 +30,7 @@ public static class BuilderExtensions
                 .Connect(config)
                 .Select(KeyFilter.Any, LabelFilter.Null);
         });
+        
+        builder.Services.Configure<TestOptions>(builder.Configuration.GetSection(TestOptions.SectionName));
     }
 }

@@ -40,7 +40,7 @@ public static class BuilderExtensions
         //     .Bind(builder.Configuration.GetSection(TestOptions.SectionName))
         //     .ValidateDataAnnotations()
         //     .ValidateOnStart();
-        
+        // builder.Configuration.GetValue<bool>()
         builder.Services.Configure<TestOptions>(builder.Configuration.GetSection(TestOptions.SectionName));
     }
 }

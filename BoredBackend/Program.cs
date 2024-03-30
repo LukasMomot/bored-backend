@@ -27,7 +27,7 @@ app.MapGet("/secret", (IConfiguration config, IOptions<TestOptions> options) =>
     var azureAppConfig = config["azureSampleConfig"];
     var testOptions = options.Value;
     
-    // return anonymous object with keys and values Secret, AzureAppConfig
+    // return anonymous object with keys and values Secret, AzureAppConfig, TestOptions
     return new { Secret = secret, AzureAppConfig = azureAppConfig, TestOptions = testOptions };
     
 });

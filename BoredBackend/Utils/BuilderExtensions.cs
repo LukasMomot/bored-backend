@@ -28,7 +28,10 @@ public static class BuilderExtensions
             var config = Environment.GetEnvironmentVariable("AZURE_APP_CONFIG");
             options
                 .Connect(config)
-                .Select(KeyFilter.Any, LabelFilter.Null);
+                .ConfigureKeyVault(kv =>
+                {
+                    kv.SetCredential(new DefaultAzureCredential());
+                }).Select(KeyFilter.Any, LabelFilter.Null);
         });
         
         builder.Services.Configure<TestOptions>(builder.Configuration.GetSection(TestOptions.SectionName));

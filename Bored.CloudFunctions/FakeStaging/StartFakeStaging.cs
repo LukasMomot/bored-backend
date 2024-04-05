@@ -1,11 +1,9 @@
-using System;
 using System.Text.Json;
 using Azure.Messaging.ServiceBus;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
-using Models = Bored.Models.Messages;
 
-namespace Bored.CloudFunctions;
+namespace Bored.CloudFunctions.FakeStaging;
 
 public class StartFakeStaging
 {

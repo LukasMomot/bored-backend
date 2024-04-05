@@ -31,7 +31,9 @@ public static class BuilderExtensions
                 .ConfigureKeyVault(kv =>
                 {
                     kv.SetCredential(new DefaultAzureCredential());
-                }).Select(KeyFilter.Any, LabelFilter.Null);
+                })
+                .Select(KeyFilter.Any, LabelFilter.Null)
+                .Select(KeyFilter.Any, "Development");
         });
 
         // Alternative way to bind options

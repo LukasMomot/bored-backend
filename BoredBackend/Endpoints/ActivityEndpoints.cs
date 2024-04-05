@@ -26,7 +26,6 @@ public static class ActivityEndpoints
     {
         var connectionString = configuration["ServiceBus"];
         await using var client = new ServiceBusClient(connectionString);
-
         await using ServiceBusSender sender = client.CreateSender("start-fake-staging");
         
         var msg = new StartFakeStaging{ ProcessId = 1, StartImmediately = true };

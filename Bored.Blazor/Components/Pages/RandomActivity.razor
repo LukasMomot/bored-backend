@@ -1,7 +1,7 @@
 @page "/randomActivity"
 @using Bored.Models
 @using Bored.Services.ExternalClients
-@rendermode InteractiveServer
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 @inject IBoredApiService BoredApiService
 

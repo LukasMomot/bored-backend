@@ -11,6 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddAppConfiguration();
 
+var appInsightsKey = builder.Configuration["APP_INSIGHTS_KEY"];
+builder.Services.AddApplicationInsightsTelemetry(options =>
+{
+    options.ConnectionString = appInsightsKey;
+});
+
 var connectionString = builder.Configuration["AzureDb"];
 builder.Services.AddDbContext<BoredDbContext>(options =>
 {
@@ -33,7 +39,11 @@ app.MapHealthChecks("/health", new HealthCheckOptions
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse // Use the UIResponseWriter
 });
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", (ILogger<Program> logger) => {
+    logger.LogInformation("Hello from the BoredBackend!");
+    return "Hello from the BoredBackend!";
+});
+
 app.MapGet("/secret", (IConfiguration config, IOptions<TestOptions> options) =>
 {
     var secret = config["firstSecret"]; // This is cooming from keyvalut

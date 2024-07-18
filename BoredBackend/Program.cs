@@ -2,6 +2,8 @@ using Bored.Models.Options;
 using BoredBackend.Data;
 using BoredBackend.Endpoints;
 using BoredBackend.Utils;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -18,7 +20,18 @@ builder.Services.AddDbContext<BoredDbContext>(options =>
     });
 });
 
+// Add health checks
+builder.Services.AddHealthChecks()
+    .AddSqlServer(connectionString, name: "AzureSQL", tags: new[] { "db", "sql", "azure" });
+
 var app = builder.Build();
+
+// Map health checks endpoint to use the UIResponseWriter
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    Predicate = _ => true, // Include all registered health checks
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse // Use the UIResponseWriter
+});
 
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/secret", (IConfiguration config, IOptions<TestOptions> options) =>

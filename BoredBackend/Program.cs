@@ -40,7 +40,8 @@ app.MapHealthChecks("/health", new HealthCheckOptions
 });
 
 app.MapGet("/", (ILogger<Program> logger) => {
-    logger.LogInformation("Hello from the BoredBackend!");
+    var version = "1.0.0";
+    logger.LogInformation("Hello from the BoredBackend! Version: {BoredVersion}", version);
     return "Hello from the BoredBackend!";
 });
 

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.AddAppConfiguration();
 
